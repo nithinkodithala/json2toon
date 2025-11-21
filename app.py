@@ -1,9 +1,10 @@
 from flask import Flask, render_template_string, request, jsonify
 from openai import OpenAI
 import os
-
-app = Flask(__name__)
+from dotenv import load_dotenv
 load_dotenv()
+app = Flask(__name__)
+
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 CLIENT = OpenAI(
     base_url="https://openrouter.ai/api/v1",
@@ -93,16 +94,22 @@ HTML_TEMPLATE = """
     <div class="d-flex justify-content-center gap-4 mt-5">
       <div class="feature-card px-4 py-3 text-center">
         <span style="font-size:1.6rem;">🤖</span><br><b>AI-Powered</b><br>
-        Uses Gemini <span style="color:orange;">AI</span> to intelligently transform your data
+        Uses <span style="color:orange;">AI</span> to intelligently transform your data
       </div>
       <div class="feature-card px-4 py-3 text-center">
         <span style="font-size:1.6rem;color:#a084fa;">🪄</span><br><b>Token Efficient</b><br>
-        Reduce LLM token costs by 30-60% compared to JSON
+        Reduce token by 60-80% compared to JSON
       </div>
       <div class="feature-card px-4 py-3 text-center">
         <span style="font-size:1.6rem;color:#ffd700;">✨</span><br><b>Simple & Easy</b><br>
         Just paste, click, and convert - it's that simple!
       </div>
+    </div>
+    <div class="footer" style="text-align:center; width:100%; margin-top:40px;">
+        Follow on x:
+        <a href="https://x.com/n_ithu" target="_blank">n_ithu</a>
+        |
+        Contact: <a href="mailto:nithin.kodithala@email.com">nithin.kodithala@email.com</a>
     </div>
   </div>
   <script>
